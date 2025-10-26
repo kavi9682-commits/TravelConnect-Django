@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ destination.name }} | TravelConnect</title>
+</head>
+<body>
+    <h1>{{ destination.name }}</h1>
+    <p><b>Country:</b> {{ destination.country }}</p>
+    <img src="{{ destination.image.url }}" width="400">
+    <p>{{ destination.description }}</p>
+    <p>💰 Price: ${{ destination.price }}</p>
+    <p>⭐ Rating: {{ destination.rating }}</p>
+    <hr>
+    <a href="/">← Back to Destinations</a>
+</body>
+</html>

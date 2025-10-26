@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Destination | TravelConnect</title>
+</head>
+<body>
+    <h2>Are you sure you want to delete "{{ destination.name }}"?</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="/">Cancel</a>
+    </form>
+</body>
+</html>

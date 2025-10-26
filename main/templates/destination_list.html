@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Destinations | TravelConnect</title>
+</head>
+<body>
+    <h1>🌍 Travel Destinations</h1>
+    <a href="{% url 'add_destination' %}">➕ Add New Destination</a>
+    <hr>
+
+    {% for d in destinations %}
+        <div>
+            <h3><a href="{% url 'destination_detail' d.pk %}">{{ d.name }}</a></h3>
+            <p>{{ d.country }}</p>
+            <img src="{{ d.image.url }}" width="250">
+            <p>Price: ${{ d.price }}</p>
+            <p>⭐ Rating: {{ d.rating }}</p>
+            <a href="{% url 'edit_destination' d.pk %}">✏️ Edit</a> |
+            <a href="{% url 'delete_destination' d.pk %}">🗑️ Delete</a>
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>

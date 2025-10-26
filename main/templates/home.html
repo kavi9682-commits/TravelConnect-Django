@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome to TravelConnect 🌍</h2>
+<p>Explore amazing destinations and plan your next adventure!</p>
+
+<hr>
+<h3>🌟 Featured Destinations</h3>
+
+{% if featured %}
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        {% for d in featured %}
+        <div style="border: 1px solid #ccc; padding: 10px; width: 30%;">
+            <h4>{{ d.name }} ({{ d.country }})</h4>
+            {% if d.image %}
+                <img src="{{ d.image.url }}" alt="{{ d.name }}" width="100%">
+            {% endif %}
+            <p>{{ d.description|truncatewords:15 }}</p>
+            <p><strong>Price:</strong> ₹{{ d.price }}</p>
+            <p><strong>Rating:</strong> ⭐ {{ d.rating }}</p>
+            <a href="{% url 'destination_detail' d.id %}">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No destinations added yet. <a href="/admin/">Add some</a>!</p>
+{% endif %}
+
+<hr>
+<a href="{% url 'destination_list' %}">🔗 View All Destinations</a>
+{% endblock %}
